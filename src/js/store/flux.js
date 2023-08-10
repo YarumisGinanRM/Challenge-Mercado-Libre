@@ -1,6 +1,7 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
+			productos: [],
 			demo: [
 				{
 					title: "FIRST",
@@ -37,6 +38,19 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				//reset the global store
 				setStore({ demo: demo });
+			},
+	
+			getProductos() {
+				fetch("https://www.swapi.tech/api/people")
+				.then(res => res.json())
+				.then(data => {
+					setStore({
+						productos: data.results
+					})
+				})
+				.catch(error => {
+					console.log(error);
+				});
 			}
 		}
 	};

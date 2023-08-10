@@ -3,14 +3,13 @@ import { Link } from "react-router-dom";
 
 export const Navbar = () => {
 	return (
-		<nav className="navbar navbar-light bg-light mb-3">
-			<Link to="/">
-				<span className="navbar-brand mb-0 h1">React Boilerplate</span>
-			</Link>
-			<div className="ml-auto">
-				<Link to="/demo">
-					<button className="btn btn-primary">Check the Context in action</button>
-				</Link>
+		<nav class="navbar navbar-light bg-warning">
+			<div class="container-fluid mx-5">
+				<h3 class="navbar-brand fs-2">LOGO</h3>
+				<form class="d-flex col-11">
+					<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+					<button class="btn btn-outline-success" type="submit">Search</button>
+				</form>
 			</div>
 		</nav>
 	);
