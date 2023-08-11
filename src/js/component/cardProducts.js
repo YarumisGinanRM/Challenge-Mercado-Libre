@@ -1,21 +1,29 @@
 import React from "react";
+import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
-export const CardProducts = () => {
-
+export const CardProducts = ({item}) => {
+    
     return (
-        <div class="border d-flex justify-content-center align-items-center col-8" style={{height: "200px", background: "white"}}>
-            <div class="row g-0">
-                <div class="col-md-4 d-flex justify-content-center align-items-center">
-                    <img class="img-fluid rounded-start" alt="..." src="https://http2.mlstatic.com/D_NQ_NP_649252-MLV70962843663_082023-V.webp"  style={{maxHeight: "160px", maxWidth: "160px"}}/>
+        <div className="border d-flex justify-content-between align-items-center col-8" style={{height: "200px", background: "white"}}>
+            <div className="row g-0">
+                <div className="col-md-4 d-flex justify-content-center align-items-center">
+                    <img className="img-fluid rounded-start" alt="..." src={item.thumbnail}  style={{maxHeight: "160px", maxWidth: "160px"}}/>
                 </div>
-                <div class="col-md-8">
-                    <div class="card-body text-start">
-                        <h5 class="card-title">Teléfonos Celular Apple iPhone 13 Pro Max 256gb Nuevos</h5>
-                        <p class="card-text">U$S 800,55</p>
-                    </div>
+                <div className="col-md-8">
+                    <Link to={"/Detalle-del-producto/" + item.id} className="text-decoration-none text-dark">
+                        <div className="card-body text-start">
+                            <h5 className="card-title" >{item.title}</h5>
+                            <p className="card-text">{item.price}</p>
+                        </div>
+                    </Link>
                 </div>
             </div>
         </div>
     )
 
 }
+
+CardProducts.propTypes = {
+    item: PropTypes.object
+};

@@ -39,18 +39,26 @@ const getState = ({ getStore, getActions, setStore }) => {
 				//reset the global store
 				setStore({ demo: demo });
 			},
-	
+
 			getProductos() {
-				fetch("https://www.swapi.tech/api/people")
+				fetch("https://api.mercadolibre.com/sites/MLV/search?q=iphone&limit=4")
 				.then(res => res.json())
 				.then(data => {
 					setStore({
 						productos: data.results
 					})
+				console.log(data.results)
 				})
 				.catch(error => {
 					console.log(error);
 				});
+			},
+
+			async getDetailsProduct(id){
+				let response = await fetch("https://api.mercadolibre.com/items/" + id)
+				let data = await response.json()
+				// return data.results
+				console.log(response)
 			}
 		}
 	};
