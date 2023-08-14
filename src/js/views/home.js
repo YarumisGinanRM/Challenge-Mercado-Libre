@@ -13,7 +13,7 @@ export const Home = () => {
 
 	return (
 		<div className="d-flex align-items-center flex-column m-5 mt-3">
-			<h3>Resultado de la busqueda</h3>
+			<h3>Resultados de la busqueda</h3>
 			{store.productos.map((item, index) => (
 				<CardProducts item={item} key={index} />
 			))}

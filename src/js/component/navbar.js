@@ -3,6 +3,7 @@ import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
+
 export const Navbar = () => {
 
 	const { store, actions } = useContext(Context);
@@ -25,11 +26,13 @@ export const Navbar = () => {
 	return (
 		<nav className="navbar navbar-light bg-warning">
 			<div className="container-fluid mx-5">
-				<h3 className="navbar-brand fs-2">LOGO</h3>
-				<form className="d-flex col-sm-8 col-md-10 col-lg-10">
-					<input className="form-control" type="search" placeholder="Search" aria-label="Search" value={busqueda} onChange={handleChange}/>
-					<button className="btn btn-outline-success" onClick={(e) => {e.preventDefault();actions.getBusqueda(busqueda)}}><i class="fa-solid fa-magnifying-glass"></i></button>
-				</form>
+				<Link to={"/"} className="text-decoration-none text-dark">
+					<h3 className="navbar-brand fs-2">LOGO</h3>
+				</Link>
+				<div className="d-flex bg-white col-sm-8 col-md-10 col-lg-10">
+					<input className="form-control bg-white border-0" placeholder="Buscar productos..." aria-label="Search" value={busqueda} onChange={handleChange}/>
+					<button className="btn bg-light border-1" onClick={(e) => {e.preventDefault();actions.getBusqueda(busqueda)}}><i class="fa-solid fa-magnifying-glass"></i></button>
+				</div>
 			</div>
 		</nav>
 	);
