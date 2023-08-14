@@ -26,9 +26,9 @@ export const Navbar = () => {
 		<nav className="navbar navbar-light bg-warning">
 			<div className="container-fluid mx-5">
 				<h3 className="navbar-brand fs-2">LOGO</h3>
-				<form className="d-flex col-xs-8 col-md-10 col-lg-11">
-					<input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" value={busqueda} onChange={handleChange}/>
-					<button className="btn btn-outline-success" onClick={(e) => {e.preventDefault();actions.getBusqueda(busqueda)}}>Search</button>
+				<form className="d-flex col-sm-8 col-md-10 col-lg-10">
+					<input className="form-control" type="search" placeholder="Search" aria-label="Search" value={busqueda} onChange={handleChange}/>
+					<button className="btn btn-outline-success" onClick={(e) => {e.preventDefault();actions.getBusqueda(busqueda)}}><i class="fa-solid fa-magnifying-glass"></i></button>
 				</form>
 			</div>
 		</nav>
