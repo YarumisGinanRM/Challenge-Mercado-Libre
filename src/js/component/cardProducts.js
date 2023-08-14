@@ -5,9 +5,9 @@ import { Link } from "react-router-dom";
 export const CardProducts = ({item}) => {
     
     return (
-        <div className="border d-flex justify-content-between align-items-center col-8" style={{height: "200px", background: "white"}}>
+        <div className="border d-flex justify-content-around align-items-center col-8" style={{minHeight: "200px", background: "white"}}>
             <div className="row g-0">
-                <div className="col-md-4 d-flex justify-content-center align-items-center">
+                <div className="col-md-4 d-flex justify-content-start align-items-center">
                     <img className="img-fluid rounded-start" alt="..." src={item.thumbnail}  style={{maxHeight: "160px", maxWidth: "160px"}}/>
                 </div>
                 <div className="col-md-8">

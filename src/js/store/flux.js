@@ -41,7 +41,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 			getProductos() {
-				fetch("https://api.mercadolibre.com/sites/MLV/search?q=iphone&limit=4")
+				fetch("https://api.mercadolibre.com/sites/MLV/search?q=telefono&limit=4")
 				.then(res => res.json())
 				.then(data => {
 					setStore({
@@ -55,11 +55,42 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 			async getDetailsProduct(id){
+				// console.log(id)
 				let response = await fetch("https://api.mercadolibre.com/items/" + id)
 				let data = await response.json()
-				// return data.results
-				console.log(response)
-			}
+				// console.log(data)
+				return data
+			},
+
+			async getDescriptionProduct(id){
+				// console.log(id)
+				let response = await fetch("https://api.mercadolibre.com/items/" + id + "/description")
+				let data = await response.json()
+				// console.log(data)
+				return data
+			},
+
+			async getCategory(id){
+				console.log(id)
+				let response = await fetch("https://api.mercadolibre.com/categories/" + id)
+				let data = await response.json()
+				console.log(data)
+				return data
+			},
+
+			getBusqueda(busqueda) {
+				fetch(`https://api.mercadolibre.com/sites/MLV/search?q=${busqueda}&limit=4`)
+				.then(res => res.json())
+				.then(data => {
+					setStore({
+						productos: data.results
+					})
+				console.log(data.results)
+				})
+				.catch(error => {
+					console.log(error);
+				});
+			},
 		}
 	};
 };

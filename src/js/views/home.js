@@ -17,10 +17,6 @@ export const Home = () => {
 			{store.productos.map((item, index) => (
 				<CardProducts item={item} key={index} />
 			))}
-			{/* <CardProducts />
-			<CardProducts />
-			<CardProducts />
-			<CardProducts /> */}
 		</div>
 	)
 };
