@@ -1,12 +1,13 @@
 import React, { useContext, useEffect, useState} from "react";
 import { Context } from "../store/appContext";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 
 
 export const Navbar = () => {
 
 	const { store, actions } = useContext(Context);
+	const navigate = useNavigate();
 
 	const [busqueda, setBusqueda] = useState("");
 	const handleChange =(e) => {
@@ -14,6 +15,11 @@ export const Navbar = () => {
 		console.log("Busqueda: " + e.target.value);
 	}
 
+	const buscar = () => {
+		actions.getBusqueda(busqueda);
+		navigate("/Resultados-de-busqueda")
+
+	}
 
 	// const filtrar = (elemetoBuscado) => {
 	// 	let resultadoBusqueda = productos.filter((elementoEncontrado) => {
@@ -31,7 +37,7 @@ export const Navbar = () => {
 				</Link>
 				<div className="d-flex bg-white col-sm-8 col-md-10 col-lg-10">
 					<input className="form-control bg-white border-0" placeholder="Buscar productos..." aria-label="Search" value={busqueda} onChange={handleChange}/>
-					<button className="btn bg-light border-1" onClick={(e) => {e.preventDefault();actions.getBusqueda(busqueda)}}><i class="fa-solid fa-magnifying-glass"></i></button>
+					<button className="btn bg-light border-1" onClick={(e) => {e.preventDefault();buscar()}}><i class="fa-solid fa-magnifying-glass"></i></button>
 				</div>
 			</div>
 		</nav>
